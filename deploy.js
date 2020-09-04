@@ -27,7 +27,7 @@ web3Obj.eth.getAccounts().then(function (value) {
     .send({
         from: value[0],
         gas: 1500000,
-        gasPrice: '30000000000000'
+        gasPrice: '300000'
     },(error, transactionHash) => {
             console.log("deploy tx : " + transactionHash);
             console.log(error);
