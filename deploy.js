@@ -1,6 +1,4 @@
 let Web3 = require('web3');
-let solc = require('solc');
-let fs = require('fs');
 let web3Obj
 
 if (typeof web3Obj !== 'undefined') {
