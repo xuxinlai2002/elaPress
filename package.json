@@ -1,0 +1,24 @@
+{
+  "name": "elapress",
+  "version": "1.0.0",
+  "description": "a test framework written in python for ela node testing.",
+  "main": "deploy.js",
+  "dependencies": {
+    "sleep": "^6.2.0",
+    "solc": "^0.4.25",
+    "web3": "^1.2.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuxinlai2002/elaPress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xuxinlai2002/elaPress/issues"
+  },
+  "homepage": "https://github.com/xuxinlai2002/elaPress#readme"
+}

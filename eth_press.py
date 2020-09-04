@@ -31,7 +31,7 @@ while True:
     }
     gas = get_buffered_gas_estimate(w3, transaction)
     gas_price = w3.eth.gasPrice
-    # log_debug_print("use gas ", gas, "gasPrice", gas_price)
+    #log_debug_print("use gas ", gas, "gasPrice", gas_price)
     transaction['gas'] = int(gas * 1)
     # transaction['gasPrice'] = int(gas_price * 1)
 
