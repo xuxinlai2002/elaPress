@@ -1,4 +1,5 @@
 let Web3 = require('web3');
+const { sleep } = require('sleep');
 let web3Obj
 
 if (typeof web3Obj !== 'undefined') {
@@ -20,6 +21,8 @@ web3Obj.eth.getAccounts().then(function (value) {
         defaultGasPrice: '20000' // default gas price in wei, 20 gwei in this case
     });
 
+
+    //执行的代码
     myContract.deploy({
         data: bytecode,
         arguments: []
@@ -30,7 +33,9 @@ web3Obj.eth.getAccounts().then(function (value) {
         gasPrice: '300000'
     },(error, transactionHash) => {
             console.log("deploy tx : " + transactionHash);
-            console.log(error);
-    });
-
+            //console.log(error);
+    }).on('receipt', function(receipt){
+        console.log("contractAddress : " + receipt.contractAddress) // 收据中包含了新的合约地址
+        })
+    
 })

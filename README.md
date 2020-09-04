@@ -10,3 +10,9 @@ run `python3 dpos_normal_test.py` to see results.
 
 now this project is just a script, with many details needing refined.
 you can also commit pull request to this project.
+
+
+
+virtualenv -p /usr/bin/python3 venv
+source venv/bin/activate
+
