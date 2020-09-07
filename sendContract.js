@@ -1,5 +1,5 @@
 let Web3 = require('web3');
-const { sleep } = require('sleep');
+
 let web3Obj
 
 if (typeof web3Obj !== 'undefined') {

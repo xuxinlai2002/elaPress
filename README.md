@@ -16,3 +16,13 @@ you can also commit pull request to this project.
 virtualenv -p /usr/bin/python3 venv
 source venv/bin/activate
 
+
+
+1.
+clickEnroll
+
+
+
+
+2.
+import clickEnroll from "@/components/main/clickEnroll";
