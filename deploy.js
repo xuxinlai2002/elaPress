@@ -28,11 +28,11 @@ web3Obj.eth.getAccounts().then(function (value) {
     })
     .send({
         from: value[0],
-        gas: 1500000,
+        gas: 3000000,
         gasPrice: '300000'
     },(error, transactionHash) => {
             console.log("deploy tx : " + transactionHash);
-            //console.log(error);
+            console.log(error);
     }).on('receipt', function(receipt){
         console.log("contractAddress : " + receipt.contractAddress) // 收据中包含了新的合约地址
         })
