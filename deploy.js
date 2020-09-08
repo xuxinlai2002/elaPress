@@ -19,7 +19,7 @@ web3.eth.getAccounts().then(function(value){
    	nonce = num; console.log("nonce:", nonce)
 
 	const data = contract.deploy({data: bytecode}).encodeABI();
-	const tx = {data: data, from: acc, gas: "200000", gasPrice: "200000000",nonce:nonce};
+	const tx = {data: data, from: acc, gas: "2000000", gasPrice: "2000000000",nonce:nonce};
 
 	web3.eth.signTransaction(tx).then((stx) => {
 	console.log("mmm", stx.raw)
