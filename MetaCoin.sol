@@ -9,7 +9,7 @@ contract MetaCoin {
     event Transfer(address _from, address _to, uint256 _value);
 
     constructor(){
-        balances[msg.sender] = 10000;
+        balances[msg.sender] = 100000000000;
     }
 
     function sendCoin(address receiver, uint amount) public returns (bool sufficient) {
