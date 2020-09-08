@@ -1,11 +1,14 @@
-pragma solidity >= 0.4.22 < 0.6.0;
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >0.5.99 <0.8.0;
+
+
 
 contract MetaCoin {
     mapping(address => uint) balances;
 
     event Transfer(address _from, address _to, uint256 _value);
 
-    constructor() public {
+    constructor(){
         balances[msg.sender] = 10000;
     }
 
