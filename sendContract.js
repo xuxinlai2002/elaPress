@@ -34,6 +34,40 @@ web3.eth.getAccounts().then(function(value){
     //var data = contract.methods.getBalance(acc).encodeABI();
 
 
+    var curGasPrice = 0;
+    web3.eth.getGasPrice() 
+    .then( pGasPrice =>{
+       curGasPrice = pGasPrice;
+
+        var curGas = 0;
+        web3.eth.estimateGas({
+            to: constractAddr,
+            data: data
+        })
+        .then( pGas =>{
+             
+            curGas = pGas;
+            console.log(curGasPrice);
+            console.log(curGas);
+
+            const tx = {data: data, from: acc, gas: curGas, gasPrice: curGasPrice,nonce:nonce, to:constractAddr};
+            web3.eth.signTransaction(tx).then((stx) => {
+            console.log("rawTx", stx.raw)
+                web3.eth.sendSignedTransaction(stx.raw).on("transactionHash", console.log).then(console.log).catch(console.log)
+
+            })
+
+           })
+
+        });
+
+
+    });
+
+
+
+
+
     // // 调用合约中的sendCoin方法
     // myContract.methods.sendCoin(toAddr, 1).send({
     //     //非必填，该合约方法的调用者
@@ -41,17 +75,7 @@ web3.eth.getAccounts().then(function(value){
     // })
 
 
-    const tx = {data: data, from: acc, gas: "2000000", gasPrice: "3000000000",nonce:nonce, to:constractAddr};
 
-    web3.eth.signTransaction(tx).then((stx) => {
-    console.log("rawTx", stx.raw)
-
-        web3.eth.sendSignedTransaction(stx.raw).on("transactionHash", console.log).then(console.log).catch(console.log)
-
-
-    })
-
-   })
 
     
 })
