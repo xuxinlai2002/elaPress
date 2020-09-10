@@ -36,17 +36,10 @@ web3.eth.getAccounts().then(function(value){
 
     var curGasPrice = 0;
     web3.eth.getGasPrice() 
-    .then( pGasPrice =>{
-       curGasPrice = pGasPrice;
-
-        var curGas = 0;
-        web3.eth.estimateGas({
-            to: constractAddr,
-            data: data
-        })
-        .then( pGas =>{
-             
-            curGas = pGas;
+        .then( pGasPrice =>{
+           curGasPrice = pGasPrice + 1000;
+                 
+            curGas = 2000000;
             console.log(curGasPrice);
             console.log(curGas);
 
@@ -56,26 +49,9 @@ web3.eth.getAccounts().then(function(value){
                 web3.eth.sendSignedTransaction(stx.raw).on("transactionHash", console.log).then(console.log).catch(console.log)
 
             })
-
-           })
-
-        });
-
+        })
 
     });
-
-
-
-
-
-    // // 调用合约中的sendCoin方法
-    // myContract.methods.sendCoin(toAddr, 1).send({
-    //     //非必填，该合约方法的调用者
-    //     from: value[0]
-    // })
-
-
-
 
     
 })
