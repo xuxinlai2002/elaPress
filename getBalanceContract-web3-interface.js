@@ -28,8 +28,8 @@ const myContract = new web3Obj.eth.Contract(JSON.parse(abi), constractAddr, {
     // 非必填，合约的创建者
     from: balanceAddr,
     //Gas limit
-    gas: 4712388,
-    gasPrice: '1000000'
+    gas: 2000000,
+    gasPrice: '2000001000'
 });
 
 
