@@ -29,7 +29,8 @@ const myContract = new web3Obj.eth.Contract(JSON.parse(abi), constractAddr, {
     from: balanceAddr,
     //Gas limit
     gas: 2000000,
-    gasPrice: '2000001000'
+    gasPrice: '2000001000',
+    
 });
 
 
