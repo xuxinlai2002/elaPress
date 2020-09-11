@@ -37,7 +37,7 @@ web3.eth.getAccounts().then(function(value){
     var curGasPrice = 0;
     web3.eth.getGasPrice() 
         .then( pGasPrice =>{
-           curGasPrice = pGasPrice + 1000;
+           curGasPrice = parseInt(pGasPrice) + 1000;
                  
             curGas = 2000000;
             console.log(curGasPrice);
