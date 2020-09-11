@@ -28,35 +28,44 @@ web3Obj.eth.getAccounts().then(function (value) {
     web3Obj.eth.getTransactionCount(value[0]).then(function(num) {
 
 
-        // 相对于部署合约，多了第二个参数，即合约地址
-        const myContract = new web3Obj.eth.Contract(JSON.parse(abi), constractAddr, {
-            // 非必填，合约的bytecode
-            data: bytecode,
-            // 非必填，合约的创建者
-            from: value[0],
-            //Gas limit
-            gas: 2000000,
-            gasPrice: '2000001000',
-            nonce:num
-        });
-
-        // 调用合约中的sendCoin方法
-        myContract.methods.sendCoin(toAddr, 1).send({
-            //非必填，该合约方法的调用者
-            from: value[0]
-        })
-        .on('transactionHash', function (hash) {
-            console.log("sendMetaCoin tx : " + hash)
-        })
-        .on('receipt', function (receipt) {
-            console.log(receipt)
-        })
-        // .on('confirmation', function (confirmationNumber, receipt) {
-        //     //console.log(confirmationNumber)
-        // })
-        .on('error', console.error)
+        web3Obj.eth.getGasPrice() 
+            .then( pGasPrice =>{
 
 
+            curGasPrice = parseInt(pGasPrice) + 1000;
+            curGas = 2000000;
+
+            // 相对于部署合约，多了第二个参数，即合约地址
+            const myContract = new web3Obj.eth.Contract(JSON.parse(abi), constractAddr, {
+                // 非必填，合约的bytecode
+                data: bytecode,
+                // 非必填，合约的创建者
+                from: value[0],
+                //Gas limit
+                gas: curGas,
+                gasPrice: curGasPrice,
+                nonce:num
+            });
+
+            // 调用合约中的sendCoin方法
+            myContract.methods.sendCoin(toAddr, 1).send({
+                //非必填，该合约方法的调用者
+                from: value[0]
+            })
+            .on('transactionHash', function (hash) {
+                console.log("sendMetaCoin tx : " + hash)
+            })
+            .on('receipt', function (receipt) {
+                console.log(receipt)
+            })
+            // .on('confirmation', function (confirmationNumber, receipt) {
+            //     //console.log(confirmationNumber)
+            // })
+            .on('error', console.error)
+
+
+
+        })
 
     })
     
