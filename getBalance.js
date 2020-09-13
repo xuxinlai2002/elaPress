@@ -18,10 +18,4 @@ web3Obj.eth.getAccounts().then(function (value) {
         console.log(value);
     });
 
-    console.log(value[1]);
-    web3Obj.eth.getBalance(value[1])
-    .then(value =>{
-        console.log(value);
-    });
-
 })
