@@ -1,14 +1,12 @@
 #!/bin/bash
 
 count=0
-echo "test pressure for $1" 
-
 
 while true
 do
     count=$((${count} + 1))
     echo "start :`date '+%Y%m%d %H:%M:%S'` ...$count"
-    python3 /home/dev/testframework/Elastos.ELA.TestFramework/pressure_xxl_01.py > ~/elaPress/pressure_xxl_01.log
+    ./elaToEth.sh
     echo "end   :`date '+%Y%m%d %H:%M:%S'` ...$count"
     echo ""
 
